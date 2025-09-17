@@ -44,5 +44,5 @@ irgi_17044_Mission basic-3A/
 Irgi Adit Pratama
 Bootcamp FSD Batch #17 @ Harisenin.com
 
-📧 Email : codegiii@gmail.com
+📧 Email : codewithgiii@gmail.com
 💼 LinkedIn : Irgi Adit Pratama
