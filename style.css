@@ -626,17 +626,17 @@ body {
     }
 
     .hero-content h1 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
 
     .hero-content p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         margin-bottom: 1.5rem;
     }
 
     .btn-hero {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
     }
 
     .courses-section h2 {
