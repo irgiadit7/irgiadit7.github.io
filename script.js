@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Hamburger Menu Logic ---
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.navbar');
     if (hamburger && navMenu) {
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Modal Elements ---
     const modalOverlay = document.getElementById('modal-overlay');
     const registerModal = document.getElementById('register-modal');
     const loginModal = document.getElementById('login-modal');
@@ -21,13 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchToLoginLink = document.getElementById('switch-to-login');
     const switchToRegisterLink = document.getElementById('switch-to-register');
 
-    // --- Modal Control Functions ---
     const openModal = (modalToOpen) => {
         if (modalOverlay && modalToOpen) {
             modalOverlay.style.display = 'flex';
-            loginModal.style.display = 'none'; // Pastikan semua modal lain tersembunyi
+            loginModal.style.display = 'none'; 
             registerModal.style.display = 'none';
-            modalToOpen.style.display = 'block'; // Tampilkan hanya modal yang diminta
+            modalToOpen.style.display = 'block'; 
         }
     };
 
@@ -37,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- Event Listeners for Modals ---
     if (loginLink) {
         loginLink.addEventListener('click', (e) => {
             e.preventDefault();
@@ -76,7 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Form Validation ---
     const registerForm = document.getElementById('register-form');
     if (registerForm) {
         registerForm.addEventListener('submit', (e) => {
@@ -107,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Google Button Dummy Alert ---
     const googleButtons = document.querySelectorAll('.btn-google');
     googleButtons.forEach(button => {
         button.addEventListener('click', (e) => {
@@ -116,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Course Filter Logic ---
     const filterButtons = document.querySelectorAll('.filter-btn');
     const courseCards = document.querySelectorAll('.course-card');
     filterButtons.forEach(button => {
@@ -135,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Dark Mode Logic
     const darkModeToggle = document.querySelector('.dark-mode-toggle');
     const body = document.body;
 
@@ -143,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.toggle('dark-mode');
     });
 
-    // Form Submission Logic
     const form = document.querySelector('form');
     const submitButton = document.querySelector('button[type="submit"]');
 
@@ -151,14 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         submitButton.disabled = true;
 
-        // Simulate form submission
         setTimeout(() => {
             alert('Form submitted successfully!');
             submitButton.disabled = false;
         }, 2000);
     });
 
-    // Scroll to Top Logic
     const scrollToTopButton = document.querySelector('.scroll-to-top');
 
     window.addEventListener('scroll', () => {

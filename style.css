@@ -27,7 +27,6 @@ body {
     font-size: 2rem;
     font-weight: 800;
     text-decoration: none;
-    /* Properti untuk animasi gradien */
     background: linear-gradient(90deg, #F64920, #FFBD3A, #F64920);
     background-size: 200% auto;
     color: transparent;
@@ -35,14 +34,6 @@ body {
     background-clip: text;
     animation: gradient-flow 6s linear infinite;
 }
-
-/* Hapus atau komentari aturan .brand span karena sudah tidak diperlukan */
-/*
-.brand span {
-    color: #F64920; 
-    font-weight: 800; 
-}
-*/
 
 .hamburger-menu {
     display: flex;
@@ -63,7 +54,6 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-/* Style untuk hamburger aktif (menjadi X) */
 .navbar.nav-active + .hamburger-menu span:nth-child(1) {
     transform: translateY(11px) rotate(45deg);
 }
@@ -74,73 +64,72 @@ body {
     transform: translateY(-11px) rotate(-45deg);
 }
 .navbar.nav-active + .hamburger-menu span {
-    background-color: #fff; /* Ubah warna ikon hamburger menjadi putih saat menu aktif */
+    background-color: #fff; 
 }
 
 
 .navbar {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Pusatkan konten secara vertikal */
-    align-items: center; /* Pusatkan konten secara horizontal */
-    background-color: rgba(26, 32, 44, 0.95); /* Latar belakang gelap transparan */
+    justify-content: center; 
+    align-items: center; 
+    background-color: rgba(26, 32, 44, 0.95); 
     position: fixed; 
     top: 0;
-    left: 0; /* Mulai dari kiri */
-    width: 100%; /* Lebar penuh */
-    height: 100vh; /* Tinggi penuh */
+    left: 0; 
+    width: 100%; 
+    height: 100vh; 
     padding: 2rem;
-    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out; /* Transisi fade */
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out; 
     z-index: 1000;
-    /* Sembunyikan secara default */
     opacity: 0;
     visibility: hidden;
 }
 
 .navbar.nav-active {
-    opacity: 1; /* Tampilkan saat aktif */
+    opacity: 1; 
     visibility: visible;
 }
 
 .navbar ul {
     list-style: none;
-    text-align: center; /* Pastikan teks di tengah */
-    margin-bottom: 2rem; /* Beri jarak ke tombol auth */
+    text-align: center; 
+    margin-bottom: 2rem; 
 }
 
 .navbar li {
-    margin-bottom: 2.5rem; /* Perbesar jarak antar item */
+    margin-bottom: 2.5rem; 
 }
 
 .navbar a {
     text-decoration: none;
-    color: #fff; /* Warna teks putih */
-    font-size: 2rem; /* Perbesar ukuran font */
+    color: #fff; 
+    font-size: 2rem; 
     font-weight: 500;
     transition: color 0.2s;
 }
 
 .navbar a:hover {
-    color: #FFBD3A; /* Warna hover */
+    color: #FFBD3A; 
 }
 
 .nav-auth {
-    border-top: none; /* Hapus garis pemisah */
+    border-top: none; 
     padding-top: 0;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Pusatkan tombol */
+    align-items: center; 
     width: 100%;
-    max-width: 250px; /* Batasi lebar tombol */
+    max-width: 250px; 
 }
 
 .nav-auth a {
     text-align: center;
     padding: 0.75rem;
-    border-radius: 8px; /* Sedikit lebih bulat */
+    border-radius: 8px; 
     margin-bottom: 1rem;
-    width: 100%; /* Lebar penuh */
-    font-size: 1.2rem; /* Sesuaikan ukuran font */
+    width: 100%; 
+    font-size: 1.2rem; 
     transition: background-color 0.2s, color 0.2s;
 }
 
@@ -165,8 +154,8 @@ body {
 }
 .main-content {
     padding: 2rem;
-    max-width: 1600px; /* Diperlebar lagi */
-    margin: 0 auto; /* Memusatkan konten */
+    max-width: 1600px; 
+    margin: 0 auto; 
 }
 
 .hero {
@@ -196,7 +185,6 @@ body {
 .hero-content {
     position: relative;
     z-index: 1;
-    /* background-position-x: -180px; Dihapus agar lebih fleksibel */
 }
 
 .hero-content h1 {
@@ -222,7 +210,6 @@ body {
     display: inline-block;
 }
 
-/* Courses Section */
 .courses-section {
     text-align: center;
 }
@@ -255,7 +242,7 @@ body {
 
 .course-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Mengatur grid menjadi 3 kolom yang sama lebar */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 2rem;
     text-align: left;
 }
@@ -265,9 +252,9 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     overflow: hidden;
-    text-decoration: none; /* Menghapus garis bawah dari link */
-    color: inherit; /* Mewarisi warna teks */
-    display: flex; /* Mengubah display agar bisa disembunyikan */
+    text-decoration: none; 
+    color: inherit; 
+    display: flex; 
     flex-direction: column;
     transition: transform 0.2s ease-in-out;
 }
@@ -277,13 +264,13 @@ body {
 }
 
 .course-card.hide {
-    display: none; /* Kelas untuk menyembunyikan kartu */
+    display: none; 
 }
 
 .course-card img {
     width: 100%;
-    height: 180px; /* Menetapkan tinggi gambar yang konsisten */
-    object-fit: cover; /* Memastikan gambar menutupi area tanpa distorsi */
+    height: 180px; 
+    object-fit: cover; 
     display: block;
 }
 
@@ -301,7 +288,7 @@ body {
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 1rem;
-    flex-grow: 1; /* Membuat paragraf mengisi ruang yang tersedia */
+    flex-grow: 1; 
 }
 
 .card-footer {
@@ -328,7 +315,6 @@ body {
     color: #333;
 }
 
-/* CTA Section */
 .cta-section {
     position: relative;
     color: #fff;
@@ -337,7 +323,7 @@ body {
     text-align: center;
     margin-top: 4rem;
     overflow: hidden;
-    box-shadow: 0 12px 45px -10px rgba(0, 59, 222, 0.2); /* Menambahkan bayangan seperti di desain */
+    box-shadow: 0 12px 45px -10px rgba(0, 59, 222, 0.2); 
 }
 
 .cta-section::before {
@@ -376,8 +362,8 @@ body {
 
 .cta-form {
     display: flex;
-    flex-direction: column; /* Mengubah tata letak menjadi vertikal */
-    align-items: center; /* Memusatkan item form */
+    flex-direction: column; 
+    align-items: center; 
     gap: 1rem;
 }
 
@@ -389,7 +375,7 @@ body {
     border-radius: 8px;
     border: none;
     width: 100%;
-    max-width: 450px; /* Menetapkan lebar maksimum untuk input dan tombol */
+    max-width: 450px; 
     box-sizing: border-box;
 }
 
@@ -399,10 +385,9 @@ body {
     font-weight: 600;
 }
 
-/* Footer Section */
 .site-footer {
-    background-color: #1A202C; /* Warna latar belakang gelap */
-    color: #A0AEC0; /* Warna teks abu-abu muda */
+    background-color: #1A202C; 
+    color: #A0AEC0; 
     padding: 4rem 2rem;
     font-size: 0.9rem;
 }
@@ -494,7 +479,6 @@ body {
     border-radius: 50%;
 }
 
-/* === Modal Styles === */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -502,7 +486,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    display: none; /* Sembunyikan overlay secara default */
+    display: none; 
     justify-content: center;
     align-items: center;
     z-index: 2000;
@@ -516,7 +500,7 @@ body {
     max-width: 450px;
     position: relative;
     color: #333;
-    display: none; /* Sembunyikan modal secara default */
+    display: none; 
 }
 
 .close-modal {
@@ -608,21 +592,21 @@ body {
 
 .btn-google {
     width: 100%;
-    padding: 0.75rem; /* Sedikit mengurangi padding */
+    padding: 0.75rem; 
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
-    display: flex; /* Menggunakan flexbox */
+    display: flex; 
     align-items: center;
     justify-content: center;
-    gap: 0.75rem; /* Jarak antara logo dan teks */
+    gap: 0.75rem; 
 }
 
 .btn-google img {
-    height: 20px; /* Atur ukuran logo google */
+    height: 20px; 
 }
 
 .google-icon {
@@ -658,7 +642,7 @@ body {
     }
 
     .course-grid {
-        grid-template-columns: 1fr; /* Mengubah grid menjadi 1 kolom pada mobile */
+        grid-template-columns: 1fr; 
     }
 
     .course-card {
@@ -677,7 +661,6 @@ body {
         font-size: 0.85rem;
     }
 
-    /* Penyesuaian Modal untuk Mobile */
     .modal {
         padding: 1.5rem;
         width: 95%;
@@ -716,7 +699,6 @@ body {
     }
 }
 
-/* Keyframes untuk animasi gradien */
 @keyframes gradient-flow {
     from {
         background-position: 0% center;
@@ -725,9 +707,6 @@ body {
         background-position: -200% center;
     }
 }
-
-
-/*poppinx-font*/
 
  .poppins-thin {
   font-family: "Poppins", sans-serif;
