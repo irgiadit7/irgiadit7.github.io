@@ -1,0 +1,838 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #FFFDF3;
+    color: #333;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.brand {
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    text-decoration: none;
+    /* Properti untuk animasi gradien */
+    background: linear-gradient(90deg, #F64920, #FFBD3A, #F64920);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient-flow 6s linear infinite;
+}
+
+/* Hapus atau komentari aturan .brand span karena sudah tidak diperlukan */
+/*
+.brand span {
+    color: #F64920; 
+    font-weight: 800; 
+}
+*/
+
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    z-index: 1001; 
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 2rem;
+    height: 3px;
+    background-color: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Style untuk hamburger aktif (menjadi X) */
+.navbar.nav-active + .hamburger-menu span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.navbar.nav-active + .hamburger-menu span:nth-child(2) {
+    opacity: 0;
+}
+.navbar.nav-active + .hamburger-menu span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+.navbar.nav-active + .hamburger-menu span {
+    background-color: #fff; /* Ubah warna ikon hamburger menjadi putih saat menu aktif */
+}
+
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Pusatkan konten secara vertikal */
+    align-items: center; /* Pusatkan konten secara horizontal */
+    background-color: rgba(26, 32, 44, 0.95); /* Latar belakang gelap transparan */
+    position: fixed; 
+    top: 0;
+    left: 0; /* Mulai dari kiri */
+    width: 100%; /* Lebar penuh */
+    height: 100vh; /* Tinggi penuh */
+    padding: 2rem;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out; /* Transisi fade */
+    z-index: 1000;
+    /* Sembunyikan secara default */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navbar.nav-active {
+    opacity: 1; /* Tampilkan saat aktif */
+    visibility: visible;
+}
+
+.navbar ul {
+    list-style: none;
+    text-align: center; /* Pastikan teks di tengah */
+    margin-bottom: 2rem; /* Beri jarak ke tombol auth */
+}
+
+.navbar li {
+    margin-bottom: 2.5rem; /* Perbesar jarak antar item */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff; /* Warna teks putih */
+    font-size: 2rem; /* Perbesar ukuran font */
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.navbar a:hover {
+    color: #FFBD3A; /* Warna hover */
+}
+
+.nav-auth {
+    border-top: none; /* Hapus garis pemisah */
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Pusatkan tombol */
+    width: 100%;
+    max-width: 250px; /* Batasi lebar tombol */
+}
+
+.nav-auth a {
+    text-align: center;
+    padding: 0.75rem;
+    border-radius: 8px; /* Sedikit lebih bulat */
+    margin-bottom: 1rem;
+    width: 100%; /* Lebar penuh */
+    font-size: 1.2rem; /* Sesuaikan ukuran font */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-login {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-login:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-signup {
+    background-color: #FFBD3A;
+    color: #1A202C;
+    font-weight: 600;
+}
+
+.btn-signup:hover {
+    background-color: #f8b32b;
+}
+.main-content {
+    padding: 2rem;
+    max-width: 1600px; /* Diperlebar lagi */
+    margin: 0 auto; /* Memusatkan konten */
+}
+
+.hero {
+    position: relative; 
+    color: #fff;
+    border-radius: 12px;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    background: url(images/backgorund.webp) center center/cover no-repeat;
+    background-color: rgba(0, 0, 0, 0.75); 
+    background-blend-mode: darken; 
+    z-index: -1; 
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    /* background-position-x: -180px; Dihapus agar lebih fleksibel */
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    opacity: 0.9;
+}
+
+.btn-hero {
+    background-color: #48bb78;
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Courses Section */
+.courses-section {
+    text-align: center;
+}
+
+.courses-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.course-filters {
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+
+.filter-btn.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Mengatur grid menjadi 3 kolom yang sama lebar */
+    gap: 2rem;
+    text-align: left;
+}
+
+.course-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    text-decoration: none; /* Menghapus garis bawah dari link */
+    color: inherit; /* Mewarisi warna teks */
+    display: flex; /* Mengubah display agar bisa disembunyikan */
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-card.hide {
+    display: none; /* Kelas untuk menyembunyikan kartu */
+}
+
+.course-card img {
+    width: 100%;
+    height: 180px; /* Menetapkan tinggi gambar yang konsisten */
+    object-fit: cover; /* Memastikan gambar menutupi area tanpa distorsi */
+    display: block;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Membuat paragraf mengisi ruang yang tersedia */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.author {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.rating {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* CTA Section */
+.cta-section {
+    position: relative;
+    color: #fff;
+    border-radius: 12px;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    overflow: hidden;
+    box-shadow: 0 12px 45px -10px rgba(0, 59, 222, 0.2); /* Menambahkan bayangan seperti di desain */
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(images/section3.webp) center center/cover no-repeat;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-blend-mode: darken;
+    z-index: -1;
+}
+
+.newsletter-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-subtext {
+    max-width: 500px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.cta-form {
+    display: flex;
+    flex-direction: column; /* Mengubah tata letak menjadi vertikal */
+    align-items: center; /* Memusatkan item form */
+    gap: 1rem;
+}
+
+.cta-form input,
+.cta-form button {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    width: 100%;
+    max-width: 450px; /* Menetapkan lebar maksimum untuk input dan tombol */
+    box-sizing: border-box;
+}
+
+.cta-form button {
+    background-color: #FFBD3A;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Footer Section */
+.site-footer {
+    background-color: #1A202C; /* Warna latar belakang gelap */
+    color: #A0AEC0; /* Warna teks abu-abu muda */
+    padding: 4rem 2rem;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.footer-brand-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-brand {
+    display: inline-block;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #F64920, #FFBD3A, #F64920);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient-flow 6s linear infinite;
+}
+
+.footer-brand-info p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    gap: 3rem;
+    flex: 2;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column h4 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 1rem;
+}
+
+.footer-column a {
+    color: #A0AEC0;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid #4A5568;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: #A0AEC0;
+    text-decoration: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+/* === Modal Styles === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; /* Sembunyikan overlay secara default */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    color: #333;
+    display: none; /* Sembunyikan modal secara default */
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.modal > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, .phone-input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.phone-input {
+    display: flex;
+}
+
+.phone-input select {
+    border: none;
+    background-color: #f0f0f0;
+    padding: 0 0.5rem;
+    border-radius: 8px 0 0 8px;
+}
+
+.phone-input input {
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin: -1rem 0 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.form-switch {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.separator {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #aaa;
+}
+
+.btn-google {
+    width: 100%;
+    padding: 0.75rem; /* Sedikit mengurangi padding */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex; /* Menggunakan flexbox */
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem; /* Jarak antara logo dan teks */
+}
+
+.btn-google img {
+    height: 20px; /* Atur ukuran logo google */
+}
+
+.google-icon {
+    height: 22px;
+    width: 22px;
+}
+
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+
+    .hero {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .btn-hero {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .courses-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr; /* Mengubah grid menjadi 1 kolom pada mobile */
+    }
+
+    .course-card {
+        border-radius: 6px;
+    }
+
+    .card-content h3 {
+        font-size: 1rem;
+    }
+
+    .card-content p {
+        font-size: 0.85rem;
+    }
+
+    .author, .price {
+        font-size: 0.85rem;
+    }
+
+    /* Penyesuaian Modal untuk Mobile */
+    .modal {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .modal h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal > p {
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input, .phone-input {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .btn-primary, .btn-google {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .google-icon {
+        height: 18px;
+        width: 18px;
+    }
+}
+
+/* Keyframes untuk animasi gradien */
+@keyframes gradient-flow {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: -200% center;
+    }
+}
+
+
+/*poppinx-font*/
+
+ .poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
